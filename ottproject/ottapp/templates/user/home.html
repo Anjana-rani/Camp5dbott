@@ -1,0 +1,24 @@
+<!-- ottapp/templates/home.html -->
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_name }} - Home</title>
+
+
+
+
+</head>
+<body style="background-image:url('{% static 'giphy.gif' %}')">
+    <header>
+        <div>
+            <h1>{{ app_name }}</h1>
+            <a href="{% url 'login' %}">Sign In</a>
+        </div>
+    </header>
+</body>
+</html>
+

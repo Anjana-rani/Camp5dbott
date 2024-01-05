@@ -1,0 +1,26 @@
+<!-- ottapp/templates/ottapp/registration.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_name }} - Registration</title>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>{{ app_name }}</h1>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+    </header>
+
+    <div>
+        <h2>Registration</h2>
+        <form method="post" action="{% url 'registration' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
