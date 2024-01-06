@@ -1,24 +1,100 @@
-<!-- ottapp/templates/home.html -->
-
-{% load static %}
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ app_name }} - Home</title>
 
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            height: 100vh;
+            background: url('https://picsum.photos/1600/900') center/cover no-repeat;
+        }
 
+        header {
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            height: 20%;
+        }
 
+        header img {
+            height: auto;
+            max-height: 60px;
+            width: auto;
+            max-width: 100%;
+        }
 
+        header h1 {
+            color: white;
+            margin: 0;
+        }
+
+        header .center {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        header a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            position: relative;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body style="background-image:url('{% static 'giphy.gif' %}')">
+<body>
     <header>
-        <div>
+        <img src="https://placekitten.com/200/50" alt="Netflix Logo">
+        <div class="center">
             <h1>{{ app_name }}</h1>
-            <a href="{% url 'login' %}">Sign In</a>
         </div>
+        <a href="{% url 'login' %}">Sign In</a>
     </header>
+
+    <main>
+        <!-- Your main content goes here -->
+    </main>
+
+    <div class="footer">
+        <a href="{% url 'login' %}">Sign In</a>
+    </div>
 </body>
 </html>
-
