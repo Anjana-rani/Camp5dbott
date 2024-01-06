@@ -1,15 +1,95 @@
-<!-- ottapp/templates/ottapp/registration.html -->
+<!-- registration.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ app_name }} - Registration</title>
+    <title>YourApp - Registration</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #e50914;
+            color: white;
+            padding: 10px;
+        }
+
+        header div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+        }
+
+        div {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input, select {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #e50914;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #cc0814;
+        }
+        .bala {
+            text-align: center;
+        }
+
+        .bala h1 {
+            color: black;
+            padding-left: 130px;
+            margin: 0; /* Remove default margin for h1 */
+        }
+    </style>
 </head>
 <body>
     <header>
-        <div>
-            <h1>{{ app_name }}</h1>
+        <div class=" bala">
+            <h1>TRINEX</h1>
             <a href="{% url 'login' %}">Login</a>
         </div>
     </header>
@@ -18,7 +98,47 @@
         <h2>Registration</h2>
         <form method="post" action="{% url 'registration' %}">
             {% csrf_token %}
-            {{ form.as_p }}
+            
+            <div>
+                <label for="{{ form.username.id_for_label }}">Username:</label>
+                {{ form.username }}
+            </div>
+
+            <div>
+                <label for="{{ form.password.id_for_label }}">Password:</label>
+                {{ form.password }}
+            </div>
+
+            <div>
+                <label for="{{ form.first_name.id_for_label }}">First Name:</label>
+                {{ form.first_name }}
+            </div>
+
+            <div>
+                <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
+                {{ form.last_name }}
+            </div>
+
+            <div>
+                <label for="{{ form.email.id_for_label }}">Email:</label>
+                {{ form.email }}
+            </div>
+
+            <div>
+                <label for="{{ form.dob.id_for_label }}">Date of Birth:</label>
+                {{ form.dob }}
+            </div>
+
+            <div>
+                <label for="{{ form.phone_number.id_for_label }}">Phone Number:</label>
+                {{ form.phone_number }}
+            </div>
+
+            <div>
+                <label for="{{ form.payment_method.id_for_label }}">Payment Method:</label>
+                {{ form.payment_method }}
+            </div>
+
             <button type="submit">Register</button>
         </form>
     </div>

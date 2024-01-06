@@ -38,12 +38,7 @@ def trinex_view(request):
     return render(request, 'trinex/trinex.html')
 
 
-# ottapp/views.py
-from django.contrib.auth import login
 
-
-
-# ottapp/views.py
 from django.shortcuts import render, redirect
 from .forms import CustomerRegistrationForm
 
@@ -51,7 +46,9 @@ def registration_view(request):
     if request.method == 'POST':
         form = CustomerRegistrationForm(request.POST)
         if form.is_valid():
-            form.save()  # This saves the form data to the database
+            customer = form.save(commit=False)
+            customer.renew_membership(form.cleaned_data['payment_method'])
+            customer.save()
             # Redirect to the login page or any other page you want
             return redirect('login')
     else:
