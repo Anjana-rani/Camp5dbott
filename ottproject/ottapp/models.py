@@ -18,7 +18,7 @@ class Customer(models.Model):
     email = models.EmailField(unique=True)
     dob = models.DateField()
     phone_number = models.CharField(max_length=15, unique=True)
-    expiration_date = models.DateField(blank=True, null=True)
+    expiration_dates = models.DateField(blank=True, null=True)
 
     def is_membership_expired(self):
         return self.expiration_date and self.expiration_date < timezone.now().date()
